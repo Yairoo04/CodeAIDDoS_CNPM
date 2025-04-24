@@ -16,7 +16,7 @@ PfSense cần ít nhất 2 network adapter:
 Bạn có thể tùy chỉnh để phù hợp với cấu hình của máy nhưng phải đáp ứng được ít nhất 2 network adapter cho PfSense
 
 Sau khi cài đặt xong PfSense ta cần phải cấu hình phù hợp để quản lý:
-  - Đây là ip của PfSense để ra Internet
+  - Đây là ip của PfSense để ra Internet (192.168.88.166)
     
   ![image](https://github.com/user-attachments/assets/5bc6f541-5361-4788-9f66-1138afc34148)
 
@@ -35,17 +35,38 @@ Sau khi cài đặt xong PfSense ta cần phải cấu hình phù hợp để qu
 **Lưu ý:** Sau khi tải mã nguồn về, bạn cần thay đổi `pfsense_host`, `username`, `password` trong `backend/block.py` để phù hợp với hệ thống của bạn
 
 ## Tải và sử dụng hệ thống
+
+- Hệ thống sẽ chạy trên ip local thông qua port 5000
+- Bắt buộc phải chạy hệ thống với người dùng root
+- Bạn có thể thử mô phỏng tấn công UDP để kiểm thử hệ thống (sử dụng hping3 hoặc cách khác)
+
 ```
 $ git clone https://github.com/Yairoo04/CodeAIDDoS_CNPM.git
 $ python3 app/app.py
 ```
-- Hệ thống sẽ chạy trên ip local thông qua port 5000
-- Bạn có thể thử mô phỏng tấn công UDP để kiểm thử hệ thống (sử dụng hping3 hoặc cách khác)
 
+## Mô phỏng tấn công
+Ở đây chúng tôi sử dụng hping3 để mô phỏng tấn công từ một máy bên ngoài
+sudo hping3 -2 -d 100000 --flood <ip PfSense> -p <port> 
+```
+sudo hping3 -2 -d 100000 --flood 192.168.88.166 -p 5001
+```
+Sau khi phát hiện tấn công, hệ thống sẽ gửi cảnh báo và chặn ip đó
 
-  
+![image](https://github.com/user-attachments/assets/cdfd564f-b9dc-4dd1-88be-e3da2240c54a)
 
+![image](https://github.com/user-attachments/assets/4f8d0e85-e08e-4cde-b7f3-ad512d12110e)
 
+![image](https://github.com/user-attachments/assets/1c76eed3-2b6a-43ff-a5cf-9d0ce6013637)
 
+## Xây dựng Docker
+Nếu bạn muốn thì chúng tôi cũng đã có sẵn một `Dockerfile` để bạn có thể build
 
-  
+```
+$ sudo docker build -t <name>
+```
+
+Lần đầu tiên chạy ta cần cấp quyền để hệ thống có thể bắt được gói tin
+```
+sudo docker run -p 5000:5000 --net=host --cap-add=NET_ADMIN <name>
+```
