@@ -53,7 +53,7 @@ $ python3 app/app.py
 
 ## Mô phỏng tấn công
 Ở đây tôi sử dụng hping3 để mô phỏng tấn công từ một máy bên ngoài
-sudo hping3 -2 -d 100000 --flood <ip PfSense> -p <port> 
+sudo hping3 -2 -d 100000 --flood `<ip PfSense>` -p `<port>` 
 ```
 sudo hping3 -2 -d 100000 --flood 192.168.88.166 -p 5001
 ```
