@@ -38,18 +38,21 @@ Sau khi cài đặt xong PfSense ta cần phải cấu hình phù hợp để qu
 
 - Hệ thống sẽ chạy trên ip local thông qua port 5000
 - Bắt buộc phải chạy hệ thống với người dùng root
+- Nên sử dụng venv 
 - Bạn có thể thử mô phỏng tấn công UDP để kiểm thử hệ thống (sử dụng hping3 hoặc cách khác)
 
 ```
 $ git clone https://github.com/Yairoo04/CodeAIDDoS_CNPM.git
 $ cd CodeAIDDoS_CNPM
+$ python3 -m venv myvenv
 $ sudo su
+$ source myvenv/bin/active
 $ pip install -r requirements.txt
 $ python3 app/app.py
 ```
 
 ## Mô phỏng tấn công
-Ở đây chúng tôi sử dụng hping3 để mô phỏng tấn công từ một máy bên ngoài
+Ở đây tôi sử dụng hping3 để mô phỏng tấn công từ một máy bên ngoài
 sudo hping3 -2 -d 100000 --flood <ip PfSense> -p <port> 
 ```
 sudo hping3 -2 -d 100000 --flood 192.168.88.166 -p 5001
