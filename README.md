@@ -42,6 +42,8 @@ Sau khi cài đặt xong PfSense ta cần phải cấu hình phù hợp để qu
 
 ```
 $ git clone https://github.com/Yairoo04/CodeAIDDoS_CNPM.git
+$ sudo su
+$ pip install -r requirements.txt
 $ python3 app/app.py
 ```
 
