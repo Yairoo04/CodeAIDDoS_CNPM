@@ -13,7 +13,7 @@ class Config:
         self.port = int(os.environ.get('PORT', '5000'))
         self.debug = os.environ.get('DEBUG', 'False').lower() == 'true'
         self.timestamp_display_duration = int(os.environ.get('TIMESTAMP_DISPLAY_DURATION', '60'))
-        self.pfsense_host = "192.168.1.1"
-        self.pfsense_username = "admin"
-        self.pfsense_password = "123456"
-        self.pfsense_interface = "wan"
+        # self.pfsense_host = "192.168.1.1"
+        # self.pfsense_username = "admin"
+        # self.pfsense_password = "123456"
+        # self.pfsense_interface = "wan"
