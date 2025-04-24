@@ -5,7 +5,8 @@
 > - Hệ thống được triển khai trên hệ điều hành linux
 
 ## Xây dựng PfSense
-Bạn có thể tham khảo thông qua link này: [Hướng dẫn cài đặt PfSense](https://thegioifirewall.com/pfsense-huong-dan-cai-dat-firewall-pfsense-len-vmware/)
+Bạn có thể tham khảo thông qua link này: [Hướng dẫn cài đặt PfSense](https://thegioifirewall.com/pfsense-huong-dan-cai-dat-firewall-pfsense-len-vmware/)      
+
 ![image](https://github.com/user-attachments/assets/0975afb2-3b52-4a5f-a5b9-656b0360e012)
 
 PfSense cần ít nhất 2 network adapter:
