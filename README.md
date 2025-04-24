@@ -11,7 +11,8 @@ Bạn có thể tham khảo thông qua link này: [Hướng dẫn cài đặt Pf
 
 PfSense cần ít nhất 2 network adapter:
   - Một adapter để giao tiếp với mạng ngoài
-  - Một adapter để quản lý mạng nội bộ, cấp phát IP, thực hiện NAT, tường lửa… cho các máy nằm phía sau pfSense
+  - Một adapter để quản lý mạng nội bộ, cấp phát IP, thực hiện NAT, tường lửa… cho các máy nằm phía sau pfSense    
+    
 Bạn có thể tùy chỉnh để phù hợp với cấu hình của máy nhưng phải đáp ứng được ít nhất 2 network adapter cho PfSense
 
 Sau khi cài đặt xong PfSense ta cần phải cấu hình phù hợp để quản lý:
