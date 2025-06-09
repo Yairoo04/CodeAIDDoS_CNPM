@@ -72,7 +72,15 @@ Nếu bạn muốn thì chúng tôi cũng đã có sẵn một `Dockerfile` đ�
 $ sudo docker build -t <name> .
 ```
 
-Lần đầu tiên chạy ta cần cấp quyền để hệ thống có thể bắt được gói tin
+Vì câu lệnh có chút dài do cần quyền để có thể bắt gói tin nên sẽ tạo một script
 ```
+$ nano run.sh
+```
+```
+#!/bin/bash
 sudo docker run -p 5000:5000 --net=host --cap-add=NET_ADMIN <name>
+```
+```
+$ chmod +x run.sh
+$ ./run.sh
 ```
