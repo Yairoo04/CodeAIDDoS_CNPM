@@ -135,6 +135,8 @@ class DDoSDetector:
         print(f"STDOUT: {result.stdout}")
         print(f"STDERR: {result.stderr}")
 
+        self.blocked_ips.discard(ip)
+
     def _check_normal_status(self):
         with self.data_lock:
             if self.last_attack_time is not None:
