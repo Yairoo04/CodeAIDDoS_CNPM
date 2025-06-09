@@ -38,3 +38,5 @@ if __name__ == "__main__":
     password = "123456"    
     interface = "wan"             
 
+    block_ip_pfsense(pfsense_host, username, password, interface, ip_to_block)    
+
