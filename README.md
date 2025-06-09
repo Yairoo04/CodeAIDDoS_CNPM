@@ -69,7 +69,7 @@ Sau khi phát hiện tấn công, hệ thống sẽ gửi cảnh báo và chặn
 Nếu bạn muốn thì chúng tôi cũng đã có sẵn một `Dockerfile` để bạn có thể build
 
 ```
-$ sudo docker build -t <name>
+$ sudo docker build -t <name> .
 ```
 
 Lần đầu tiên chạy ta cần cấp quyền để hệ thống có thể bắt được gói tin
