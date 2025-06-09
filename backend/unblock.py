@@ -36,4 +36,7 @@ if __name__ == "__main__":
     pfsense_host = "192.168.1.1"  
     username = "admin"             
     password = "123456"    
-    interface = "wan"      
+    interface = "wan"  
+
+    unblock_ip_pfsense(pfsense_host, username, password, interface, ip_to_block)
+    
