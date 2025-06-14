@@ -1,8 +1,13 @@
 # Đồ Án Nhập Môn Công Nghệ Phần Mềm
 ## Giới Thiệu
 > - Tên đề tài: Hệ thống phát hiện tấn công DDoS dựa trên AI
+> - Tập dữ liệu: CIC-DDoS2019
 > - Mục tiêu: Xây dựng được một hệ thống phát hiện DDoS và có khả năng tự động chặn ip tấn công
 > - Hệ thống được triển khai trên hệ điều hành linux
+
+## Yêu Cầu
+> - Một máy ảo PfSense
+> - Một máy ảo Ubuntu
 
 ## Xây dựng PfSense
 Bạn có thể tham khảo thông qua link này: [Hướng dẫn cài đặt PfSense](https://thegioifirewall.com/pfsense-huong-dan-cai-dat-firewall-pfsense-len-vmware/)      
@@ -24,7 +29,7 @@ Sau khi cài đặt xong PfSense ta cần phải cấu hình phù hợp để qu
     
   ![image](https://github.com/user-attachments/assets/56f85cc3-9390-4a3c-a162-7fb9d213d2da)
 
-  - Thiết lập rule để hệ thống có thể giao tiếp với máy bên ngoài tường lửa
+  - Thiết lập rule để hệ thống có thể giao tiếp với máy bên ngoài tường lửa (Thiết lập trên máy Ubuntu)
     
   ![image](https://github.com/user-attachments/assets/6ab8aa07-e18b-4e67-a92e-2ae7ae87d615)
 
@@ -34,6 +39,9 @@ Sau khi cài đặt xong PfSense ta cần phải cấu hình phù hợp để qu
 
 **Lưu ý:** Sau khi tải mã nguồn về, bạn cần thay đổi `pfsense_host`, `username`, `password` trong `backend/block.py` để phù hợp với hệ thống của bạn
 
+## Xây dựng máy Ubuntu
+- Chỉ yêu cầu sử dụng đúng network adapter với pfSense (ở đây hệ thống của tôi sử dụng là `Custom (/dev/vmnet1)`
+
 ## Tải và sử dụng hệ thống
 
 - Hệ thống sẽ chạy trên ip local thông qua port 5000
@@ -42,8 +50,8 @@ Sau khi cài đặt xong PfSense ta cần phải cấu hình phù hợp để qu
 - Bạn có thể thử mô phỏng tấn công UDP để kiểm thử hệ thống (sử dụng hping3 hoặc cách khác)
 
 ```
-$ git clone https://github.com/Yairoo04/CodeAIDDoS_CNPM.git
-$ cd CodeAIDDoS_CNPM
+$ git clone https://github.com/ch1lL9uy/DO-AN-NMCNPM.git
+$ cd DO-AN-NMCNPM/CodeAIDDoS_CNPM
 $ python3 -m venv myvenv
 $ sudo su
 $ source myvenv/bin/active
@@ -66,10 +74,9 @@ Sau khi phát hiện tấn công, hệ thống sẽ gửi cảnh báo và chặn
 ![image](https://github.com/user-attachments/assets/1c76eed3-2b6a-43ff-a5cf-9d0ce6013637)
 
 ## Xây dựng Docker
-### **Lưu ý**: Trước khi build bạn cần di chuyển thư mục train đi. Việc build docker sẽ chỉ có thể sử dụng để phát hiện DDOS, không thể chặn ip bằng pfSense được
+### **Lưu ý**: Việc build docker sẽ chỉ có thể sử dụng để phát hiện DDoS, không thể chặn ip bằng pfSense được
 Nếu bạn muốn thì chúng tôi cũng đã có sẵn một `Dockerfile` để bạn có thể build
 hoặc bạn có thể tải container đã được build sẵn [tại đây](https://hub.docker.com/repository/docker/ch1ll9uy/ddos_detector)
-
 ```
 $ sudo docker build -t <name> .
 ```
@@ -86,4 +93,3 @@ sudo docker run -p 5000:5000 --net=host --cap-add=NET_ADMIN <name>
 $ chmod +x run.sh
 $ ./run.sh
 ```
-
