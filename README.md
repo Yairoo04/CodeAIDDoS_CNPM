@@ -50,8 +50,8 @@ Sau khi cài đặt xong PfSense ta cần phải cấu hình phù hợp để qu
 - Bạn có thể thử mô phỏng tấn công UDP để kiểm thử hệ thống (sử dụng hping3 hoặc cách khác)
 
 ```
-$ git clone https://github.com/ch1lL9uy/DO-AN-NMCNPM.git
-$ cd DO-AN-NMCNPM/CodeAIDDoS_CNPM
+$ git clone https://github.com/Yairoo04/CodeAIDDoS_CNPM.git
+$ cd CodeAIDDoS_CNPM/CodeAIDDoS_CNPM
 $ python3 -m venv myvenv
 $ sudo su
 $ source myvenv/bin/active
