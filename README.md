@@ -66,7 +66,9 @@ Sau khi phát hiện tấn công, hệ thống sẽ gửi cảnh báo và chặn
 ![image](https://github.com/user-attachments/assets/1c76eed3-2b6a-43ff-a5cf-9d0ce6013637)
 
 ## Xây dựng Docker
+### **Lưu ý**: Trước khi build bạn cần di chuyển thư mục train đi. Việc build docker sẽ chỉ có thể sử dụng để phát hiện DDOS, không thể chặn ip bằng pfSense được
 Nếu bạn muốn thì chúng tôi cũng đã có sẵn một `Dockerfile` để bạn có thể build
+hoặc bạn có thể tải container đã được build sẵn [tại đây](https://hub.docker.com/repository/docker/ch1ll9uy/ddos_detector)
 
 ```
 $ sudo docker build -t <name> .
@@ -84,5 +86,4 @@ sudo docker run -p 5000:5000 --net=host --cap-add=NET_ADMIN <name>
 $ chmod +x run.sh
 $ ./run.sh
 ```
-Hoặc bạn có thể tải container đã được build sẵn [tại đây](https://hub.docker.com/repository/docker/ch1ll9uy/ddos_detector)
-### **Lưu ý**: Việc build docker sẽ chỉ có thể sử dụng để phát hiện DDOS, không thể chặn ip bằng pfSense được
+
